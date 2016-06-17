@@ -25,10 +25,17 @@
                 <form string="Dedicacion Semanal">
                     <sheet>
                         <group>
-                            <field name="name"/>
                             <field name="period_id"/>
                             <field name="week"/>
                             <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="imputation_ids">
+                                <tree string="Imputaciones" editable="bottom">
+                                    <field name="project_id"/>
+                                    <field name="percentage"/>
+                                </tree>
+                            </field>
                         </group>
                     </sheet>
                 </form>
@@ -42,7 +49,6 @@
             <field name="arch" type="xml">
 
                 <tree string="Dedicaciones Semanales">
-                    <field name="name"/>
                     <field name="period_id"/>
                     <field name="week"/>
                     <field name="user_id"/>

@@ -21,5 +21,6 @@ import res_users
 import res_company
 import project_period
 import project_weeksheet
+import project_weeksheet_imputation
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

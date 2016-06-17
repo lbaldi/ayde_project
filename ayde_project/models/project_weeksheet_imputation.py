@@ -23,49 +23,44 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class ProjecWeeksheet(models.Model):
+class ProjecWeeksheetImputation(models.Model):
 
-    _name = 'project.weeksheet'
+    _name = 'project.weeksheet.imputation'
 
-    _description = 'Dedicacion Semanal'
+    _description = 'Imputacion'
 
-    period_id = fields.Many2one(
-        comodel_name='project.period',
-        string="Periodo",
+    project_weeksheet_id = fields.Many2one(
+        comodel_name='project.weeksheet',
+        string="Dedicacion Semanal",
         required=True,
     )
 
-    week = fields.Selection(
-        [
-            ('1', '1 - Primer Semana'),
-            ('2', '2 - Segunda Semana'),
-            ('3', '3 - Tercer Semana') ,
-            ('4', '4 - Cuarta Semana')
-        ],
-        string="Semana",
+    project_id = fields.Many2one(
+        comodel_name='project.project',
+        string="Proyecto",
         required=True,
     )
 
-    user_id = fields.Many2one(
-        comodel_name='res.users',
-        string="Usuario",
+    percentage = fields.Float(
+        string="Porcentaje",
         required=True,
     )
 
-    imputation_ids = fields.One2many(
-        comodel_name='project.weeksheet.imputation',
-        inverse_name="project_weeksheet_id",
-        string = "Imputaciones",
-    )
+    @api.one
+    @api.constrains('percentage')
+    def _check_percentage(self):
+        if self.percentage <= 0.0 or self.percentage > 100.0:
+            raise Warning("El porcentaje establecido debe ser mayor a 0 y menor igual que 100!")
+
 
     _sql_constraints = [
-        ('unique_week_period',
-         'unique(period_id,week,user_id)',
-         "Ya existe una ficha de dedicacion semanal para este usuario, periodo y semana!"
+        ('unique_week_project',
+         'unique(project_id,project_weeksheet_id)',
+         "Ya existe una imputacion para este proyecto en esta ficha de dedicacion semanal!"
         )
     ]
 
-ProjecWeeksheet()
+ProjecWeeksheetImputation()
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
