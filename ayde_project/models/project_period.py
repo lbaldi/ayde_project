@@ -16,10 +16,25 @@
 #
 ##############################################################################
 
-import project_project
-import res_users
-import res_company
-import project_period
-import project_weeksheet
+from openerp import models, fields, api
+from openerp.exceptions import Warning
+
+import logging
+_logger = logging.getLogger(__name__)
+
+
+class ProjectPeriod(models.Model):
+
+    _name = 'project.period'
+
+    _description = 'Periodo'
+
+    name = fields.Char(
+        string="Nombre",
+        required=True,
+    )
+
+ProjectPeriod()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

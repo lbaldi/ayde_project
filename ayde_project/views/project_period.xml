@@ -17,18 +17,15 @@
 <openerp>
     <data>
 
-        <record id="res_company_view_form" model="ir.ui.view">
-            <field name="name">Empresa</field>
-            <field name="model">res.company</field>
+        <record id="project_period_view_form" model="ir.ui.view">
+            <field name="name">Periodo</field>
+            <field name="model">project.period</field>
             <field name="arch" type="xml">
 
-                <form string="Empresa">
+                <form string="Periodo">
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="tax_percentage"/>
-                            <field name="it_expense"/>
-                            <field name="logo"/>
                         </group>
                     </sheet>
                 </form>
@@ -36,43 +33,31 @@
             </field>
         </record>
 
-        <record id="res_company_view_tree" model="ir.ui.view">
-            <field name="name">Empresas</field>
-            <field name="model">res.company</field>
+        <record id="project_period_view_tree" model="ir.ui.view">
+            <field name="name">Periodos</field>
+            <field name="model">project.period</field>
             <field name="arch" type="xml">
 
-                <tree string="Empresas">
+                <tree string="Periodos">
                     <field name="name"/>
                 </tree>
 
             </field>
         </record>
 
-        <record id="res_company_view_action" model="ir.actions.act_window">
-            <field name="name">Empresas</field>
+        <record id="project_period_action" model="ir.actions.act_window">
+            <field name="name">Periodos</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">res.company</field>
+            <field name="res_model">project.period</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record id="res_company_view_action_view1" model="ir.actions.act_window.view">
-            <field name="view_id" ref="res_company_view_tree"/>
-            <field name="view_mode">tree</field>
-            <field name="act_window_id" ref="res_company_view_action"/>
-        </record>
-
-        <record id="res_company_view_action_view2" model="ir.actions.act_window.view">
-            <field name="view_id" ref="res_company_view_form"/>
-            <field name="view_mode">form</field>
-            <field name="act_window_id" ref="res_company_view_action"/>
-        </record>
-
         <menuitem
-            id="res_company_menu"
-            name="Empresas"
+            id="project_period_menu"
+            name="Periodos"
             parent="project_configuration_menu"
-            sequence="30"
-            action="res_company_view_action"
+            sequence="40"
+            action="project_period_action"
         />
 
     </data>

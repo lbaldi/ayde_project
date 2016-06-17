@@ -43,6 +43,8 @@
         'views/project_project.xml',
         'views/res_users.xml',
         'views/res_company.xml',
+        'views/project_period.xml',
+        'views/project_weeksheet.xml',
 
     ],
 

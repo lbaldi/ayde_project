@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<openerp>
+    <data>
+
+        <record id="project_weeksheet_view_form" model="ir.ui.view">
+            <field name="name">Dedicacion Semanal</field>
+            <field name="model">project.weeksheet</field>
+            <field name="arch" type="xml">
+
+                <form string="Dedicacion Semanal">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="period_id"/>
+                            <field name="week"/>
+                            <field name="user_id"/>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="project_weeksheet_view_tree" model="ir.ui.view">
+            <field name="name">Dedicaciones Semanales</field>
+            <field name="model">project.weeksheet</field>
+            <field name="arch" type="xml">
+
+                <tree string="Dedicaciones Semanales">
+                    <field name="name"/>
+                    <field name="period_id"/>
+                    <field name="week"/>
+                    <field name="user_id"/>
+                </tree>
+
+            </field>
+        </record>
+
+        <record id="project_weeksheet_action" model="ir.actions.act_window">
+            <field name="name">Dedicaciones Semanales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.weeksheet</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="project_weeksheet_menu"
+            name="Dedicaciones Semanales"
+            parent="project_general_menu"
+            sequence="10"
+            action="project_weeksheet_action"
+        />
+
+    </data>
+</openerp>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->
