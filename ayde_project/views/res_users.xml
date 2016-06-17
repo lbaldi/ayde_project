@@ -17,7 +17,7 @@
 <openerp>
     <data>
 
-        <record id="res_users_view_form" model="ir.ui.view">
+        <record id="res_users_views" model="ir.ui.view">
             <field name="name">Usuario</field>
             <field name="model">res.users</field>
             <field name="arch" type="xml">
@@ -33,14 +33,6 @@
                     </sheet>
                 </form>
 
-            </field>
-        </record>
-
-        <record id="res_users_view_tree" model="ir.ui.view">
-            <field name="name">Usuarios</field>
-            <field name="model">res.users</field>
-            <field name="arch" type="xml">
-
                 <tree string="Usuarios">
                     <field name="name"/>
                     <field name="login"/>
@@ -55,6 +47,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="res_users_views"/>
         </record>
 
         <menuitem
