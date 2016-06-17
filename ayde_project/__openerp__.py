@@ -39,7 +39,7 @@
     'data': [
 
         #'security/ir.model.access.csv',
-        #'views/.xml',
+        'views/menu.xml',
 
     ],
 
