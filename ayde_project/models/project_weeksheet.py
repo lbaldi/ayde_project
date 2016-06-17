@@ -58,6 +58,16 @@ class ProjecWeeksheet(models.Model):
         string = "Imputaciones",
     )
 
+    @api.one
+    @api.constrains('imputation_ids')
+    def _check_percentage(self):
+        total = 0
+        for imputation in self.imputation_ids:
+            total += imputation.percentage
+        if total != 100:
+            raise Warning("La sumatoria de todas las imputaciones debe ser igual a 100")
+
+
     _sql_constraints = [
         ('unique_week_period',
          'unique(period_id,week,user_id)',

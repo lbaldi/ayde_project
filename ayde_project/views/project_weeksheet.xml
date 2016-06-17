@@ -25,14 +25,14 @@
                 <form string="Dedicacion Semanal">
                     <sheet>
                         <group>
-                            <field name="period_id"/>
+                            <field name="period_id" widget="selection"/>
                             <field name="week"/>
-                            <field name="user_id"/>
+                            <field name="user_id" widget="selection"/>
                         </group>
                         <group>
                             <field name="imputation_ids">
                                 <tree string="Imputaciones" editable="bottom">
-                                    <field name="project_id"/>
+                                    <field name="project_id" widget="selection"/>
                                     <field name="percentage"/>
                                 </tree>
                             </field>
