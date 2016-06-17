@@ -16,7 +16,23 @@
 #
 ##############################################################################
 
-import project_project
-import res_users
+from openerp import models, fields, api
+from openerp.exceptions import Warning
+
+import logging
+_logger = logging.getLogger(__name__)
+
+
+class ResUsers(models.Model):
+
+    _inherit = 'res.users'
+
+    salary = fields.Float(
+        string="Salario",
+        required=True,
+    )
+
+ResUsers()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

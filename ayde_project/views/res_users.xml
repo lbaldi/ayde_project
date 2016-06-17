@@ -17,16 +17,18 @@
 <openerp>
     <data>
 
-        <record id="project_project_view_form" model="ir.ui.view">
-            <field name="name">Proyecto</field>
-            <field name="model">project.project</field>
+        <record id="res_users_view_form" model="ir.ui.view">
+            <field name="name">Usuario</field>
+            <field name="model">res.users</field>
             <field name="arch" type="xml">
 
-                <form string="Proyecto">
+                <form string="Usuario">
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="visible"/>
+                            <field name="login"/>
+                            <field name="company_id"/>
+                            <field name="salary"/>
                         </group>
                     </sheet>
                 </form>
@@ -34,32 +36,33 @@
             </field>
         </record>
 
-        <record id="project_project_view_tree" model="ir.ui.view">
-            <field name="name">Proyectos</field>
-            <field name="model">project.project</field>
+        <record id="res_users_view_tree" model="ir.ui.view">
+            <field name="name">Usuarios</field>
+            <field name="model">res.users</field>
             <field name="arch" type="xml">
 
-                <tree string="Proyectos">
+                <tree string="Usuarios">
                     <field name="name"/>
-                    <field name="visible"/>
+                    <field name="login"/>
+                    <field name="company_id"/>
                 </tree>
 
             </field>
         </record>
 
-        <record id="project_project_view_action" model="ir.actions.act_window">
-            <field name="name">Proyectos</field>
+        <record id="res_users_view_action" model="ir.actions.act_window">
+            <field name="name">Usuarios</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">project.project</field>
+            <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem
-            id="project_project_menu"
-            name="Proyectos"
+            id="res_users_menu"
+            name="Usuarios"
             parent="project_configuration_menu"
-            sequence="10"
-            action="project_project_view_action"
+            sequence="20"
+            action="res_users_view_action"
         />
 
     </data>
