@@ -17,7 +17,7 @@
 <openerp>
     <data>
 
-        <record id="res_users_views" model="ir.ui.view">
+        <record id="res_users_view_form" model="ir.ui.view">
             <field name="name">Usuario</field>
             <field name="model">res.users</field>
             <field name="arch" type="xml">
@@ -55,7 +55,18 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
-            <field name="views">[('res_users_view_tree', 'tree'), ('res_users_views', 'form')]</field>
+        </record>
+
+        <record id="res_users_view_action_view1" model="ir.actions.act_window.view">
+            <field name="view_id" ref="res_users_view_tree"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="res_users_view_action"/>
+        </record>
+        
+        <record id="res_users_view_action_view2" model="ir.actions.act_window.view">
+            <field name="view_id" ref="res_users_view_form"/>
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="res_users_view_action"/>
         </record>
 
         <menuitem
