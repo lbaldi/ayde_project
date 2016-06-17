@@ -16,11 +16,30 @@
 #
 ##############################################################################
 
-import project_period
-import project_project
-import project_weeksheet
-import project_weeksheet_imputation
-import res_company
-import res_users
+from openerp import models, fields, api
+from openerp.exceptions import Warning
+
+import logging
+_logger = logging.getLogger(__name__)
+
+
+class ProjectCostReportWizard(models.TransientModel):
+
+    _name = 'project.cost.report.wizard'
+
+    _description = 'Reporte de costo de proyectos'
+
+    project_period_id = fields.Many2one(
+        comodel_name="project.period",
+        string="Periodo",
+        required=True,
+    )
+
+    @api.one
+    def getReport(self):
+        pass
+
+ProjectCostReportWizard()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

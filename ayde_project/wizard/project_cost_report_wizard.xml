@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<openerp>
+    <data>
+
+        <record id="project_cost_report_wizard_view_form" model="ir.ui.view">
+            <field name="name">Reporte de costo de proyectos</field>
+            <field name="model">project.cost.report.wizard</field>
+            <field name="arch" type="xml">
+
+                <form string="Reporte de costo de proyectos">
+                    <sheet>
+                        <group>
+                            <field name="project_period_id"/>
+                        </group>
+                    </sheet>
+                </form>
+                <footer>
+                    <button type="object" name="getReport" string="Generar reporte" icon="gtk-ok"/>
+                    o
+                    <button type="special" special="cancel" string="cancel" icon="gtk-cancel"/>
+                </footer>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="project_cost_report_wizard_action">
+            <field name="name">Costo Proyectos</field>
+            <field name="res_model">project.cost.report.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="project_cost_report_wizard_menu"
+            name="Costo Proyectos"
+            parent="project_report_menu"
+            sequence="10"
+            action="project_cost_report_wizard_action"
+        />
+
+    </data>
+</openerp>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

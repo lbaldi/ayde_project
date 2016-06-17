@@ -24,7 +24,10 @@
         <menuitem id="project_general_menu" name="General" parent="project_root" sequence="10"/>
 
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="project_configuration_menu" name="Configuracion" parent="project_root" sequence="20"/>
+        <menuitem id="project_report_menu" name="Reporte" parent="project_root" sequence="20"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="project_configuration_menu" name="Configuracion" parent="project_root" sequence="30"/>
 
     </data>
 </openerp>

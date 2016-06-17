@@ -45,6 +45,7 @@
         'views/res_company.xml',
         'views/project_period.xml',
         'views/project_weeksheet.xml',
+        'wizard/project_cost_report_wizard.xml',
 
     ],
 

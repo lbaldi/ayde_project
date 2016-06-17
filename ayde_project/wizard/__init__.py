@@ -16,11 +16,6 @@
 #
 ##############################################################################
 
-import project_period
-import project_project
-import project_weeksheet
-import project_weeksheet_imputation
-import res_company
-import res_users
+import project_cost_report_wizard
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
