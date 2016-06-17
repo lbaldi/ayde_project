@@ -33,6 +33,14 @@
                     </sheet>
                 </form>
 
+            </field>
+        </record>
+
+        <record id="res_users_view_tree" model="ir.ui.view">
+            <field name="name">Usuarios</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+
                 <tree string="Usuarios">
                     <field name="name"/>
                     <field name="login"/>
@@ -47,7 +55,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="res_users_views"/>
+            <field name="views">[('res_users_view_tree', 'tree'), ('res_users_views', 'form')]</field>
         </record>
 
         <menuitem
