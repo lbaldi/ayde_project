@@ -40,6 +40,7 @@
 
         #'security/ir.model.access.csv',
         'views/menu.xml',
+        'views/project_project.xml',
 
     ],
 
