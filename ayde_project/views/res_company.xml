@@ -67,7 +67,7 @@
         </record>
 
         <menuitem
-            id="res_users_menu"
+            id="res_company_menu"
             name="Empresas"
             parent="project_configuration_menu"
             sequence="20"
