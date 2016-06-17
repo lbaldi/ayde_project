@@ -16,8 +16,28 @@
 #
 ##############################################################################
 
-import project_project
-import res_users
-import res_company
+from openerp import models, fields, api
+from openerp.exceptions import Warning
+
+import logging
+_logger = logging.getLogger(__name__)
+
+
+class ResCompany(models.Model):
+
+    _inherit = 'res.company'
+
+    tax_percentage = fields.Float(
+        string="Porcentaje Cargas Sociales",
+        required=True,
+    )
+
+    it_expense = fields.Float(
+        string="Gastos Infraestructura",
+        required=True,
+    )
+
+ResCompany()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

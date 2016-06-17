@@ -27,7 +27,17 @@
                         <group>
                             <field name="name"/>
                             <field name="login"/>
-                            <field name="company_id"/>
+                            <field name="company_id">
+                                <form string="Empresa">
+                                    <sheet>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="tax_percentage"/>
+                                            <field name="it_expense"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
                             <field name="salary"/>
                         </group>
                     </sheet>
@@ -62,7 +72,7 @@
             <field name="view_mode">tree</field>
             <field name="act_window_id" ref="res_users_view_action"/>
         </record>
-        
+
         <record id="res_users_view_action_view2" model="ir.actions.act_window.view">
             <field name="view_id" ref="res_users_view_form"/>
             <field name="view_mode">form</field>
