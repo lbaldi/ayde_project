@@ -29,6 +29,8 @@ class ProjectPeriod(models.Model):
 
     _description = 'Periodo'
 
+    _order = 'name desc'
+
     name = fields.Char(
         string="Nombre",
         required=True,

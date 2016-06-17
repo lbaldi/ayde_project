@@ -35,7 +35,7 @@ class ProjecWeeksheet(models.Model):
     )
 
     period_id = fields.Many2one(
-        commodelname='project.period',
+        comodel_name='project.period',
         string="Periodo",
         required=True,
     )
@@ -52,7 +52,7 @@ class ProjecWeeksheet(models.Model):
     )
 
     user_id = fields.Many2one(
-        commodelname='res.users',
+        comodel_name='res.users',
         string="Usuario",
         required=True,
     )
