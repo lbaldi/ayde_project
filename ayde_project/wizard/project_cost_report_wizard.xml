@@ -23,14 +23,19 @@
             <field name="arch" type="xml">
 
                 <form string="Reporte de costo de proyectos">
-                    <group>
-                        <field name="project_period_id"/>
-                    </group>
+                    <sheet>
+                        <group>
+                            <field name="project_period_id"/>
+                            <field name="text_report" readonly="True"/>
+                        </group>
+                    </sheet>
+                    <!--
                     <footer>
                         <button type="object" name="getReport" string="Generar reporte" icon="gtk-ok"/>
                         o
                         <button type="special" special="cancel" string="cancel" icon="gtk-cancel"/>
                    </footer>
+                   -->
                 </form>
             </field>
         </record>

@@ -29,10 +29,29 @@ class ProjectCostReportWizard(models.TransientModel):
 
     _description = 'Reporte de costo de proyectos'
 
+    @api.onchange('project_period_id')
+    def onchange_project_period_id(self):
+        buffer_string = ''
+        if self.project_period_id:
+            buffer_string += 'Proyecto 1: $1324123.0\n'
+            buffer_string += 'Proyecto 2: $23.0\n'
+            buffer_string += 'Proyecto 3: $133.0\n'
+            buffer_string += 'Proyecto 4: $1322344123.0\n'
+            buffer_string += 'Proyecto 6: $234.0\n'
+        else:
+            buffer_string = 'Debe elegir un periodo para visualizar el reporte.'
+        self.text_report = buffer_string
+
+
+
     project_period_id = fields.Many2one(
         comodel_name="project.period",
         string="Periodo",
         required=True,
+    )
+
+    text_report = fields.Text(
+        string="Reporte"
     )
 
     @api.one
