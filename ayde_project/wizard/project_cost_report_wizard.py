@@ -33,7 +33,7 @@ class ProjectCostReportWizard(models.TransientModel):
     def onchange_project_period_id(self):
 
         buffer_string = ''
-        buffer_squeleton = '{name}: ${cost}'
+        buffer_squeleton = '{name}: ${cost}\n'
 
         if self.project_period_id:
 
