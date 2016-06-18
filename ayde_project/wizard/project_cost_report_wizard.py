@@ -37,11 +37,11 @@ class ProjectCostReportWizard(models.TransientModel):
 
         if self.project_period_id:
 
-            imputations = []
+            imputations = self.env['project.weeksheet.imputation']
 
             for weeksheet in self.project_period_id.weeksheet_ids:
 
-                imputations += weeksheet.imputation_ids
+                imputations = imputations | weeksheet.imputation_ids
 
             imputations = imputations.filtered("project_id.visible")
 

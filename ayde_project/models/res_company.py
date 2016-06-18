@@ -58,7 +58,7 @@ class ResCompany(models.Model):
 
     def get_it_expense_by_user(self):
         if self.user_ids:
-            return self.it_expense / self.user_ids.count()
+            return self.it_expense / len(self.user_ids)
         else:
             return 0
 
