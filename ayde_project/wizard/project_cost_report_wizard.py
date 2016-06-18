@@ -59,7 +59,8 @@ class ProjectCostReportWizard(models.TransientModel):
 
                 buffer_string += buffer_squeleton.format(
                     name=project.name,
-                    cost=cost)
+                    cost=round(cost,2),
+                )
 
         else:
             buffer_string = 'Debe elegir un periodo para visualizar el reporte.'
