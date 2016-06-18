@@ -36,6 +36,12 @@ class ProjectPeriod(models.Model):
         required=True,
     )
 
+    weeksheet_ids = fields.One2many(
+        comodel_name='project.weeksheet',
+        inverse_name="period_id",
+        string = "Dedicaciones Semanales",
+    )
+
 ProjectPeriod()
 
 

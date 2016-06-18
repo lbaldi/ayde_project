@@ -53,6 +53,10 @@ class ProjecWeeksheetImputation(models.Model):
             raise Warning("El porcentaje establecido debe ser mayor a 0 y menor igual que 100!")
 
 
+    def get_cost(self):
+        return self.project_weeksheet_id.get_cost() * self.percentage / 100
+
+
     _sql_constraints = [
         ('unique_week_project',
          'unique(project_id,project_weeksheet_id)',

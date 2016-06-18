@@ -32,6 +32,19 @@ class ResUsers(models.Model):
         required=True,
     )
 
+    @api.one
+    @api.constrains('salary')
+    def _check_salary(self):
+        if self.salary <= 0.0:
+            raise Warning("El valor debe ser mayor igual a 0.")
+
+    def get_cost(self):
+        cost = 0
+        cost += self.company_id.get_it_expense_by_user()
+        cost += self.salary / 12
+        cost += self.salary * self.company_id.it_expense
+        return cost
+
 ResUsers()
 
 

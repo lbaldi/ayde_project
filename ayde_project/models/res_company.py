@@ -32,10 +32,35 @@ class ResCompany(models.Model):
         required=True,
     )
 
+    @api.one
+    @api.constrains('tax_percentage')
+    def _check_tax_percentage(self):
+        if self.tax_percentage <= 0.0 or self.tax_percentage > 100.0:
+            raise Warning("El porcentaje establecido debe ser mayor a 0 y menor igual que 100!")
+
     it_expense = fields.Float(
         string="Gastos Infraestructura",
         required=True,
     )
+
+    @api.one
+    @api.constrains('it_expense')
+    def _check_it_expense(self):
+        if self.it_expense <= 0.0:
+            raise Warning("El valor debe ser mayor igual a 0.")
+
+
+    user_ids = fields.One2many(
+        comodel_name='res.users',
+        inverse_name="company_id",
+        string = "Usuarios",
+    )
+
+    def get_it_expense_by_user(self):
+        if self.user_ids:
+            return self.it_expense / self.user_ids.count()
+        else:
+            return 0
 
 ResCompany()
 

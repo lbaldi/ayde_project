@@ -31,15 +31,39 @@ class ProjectCostReportWizard(models.TransientModel):
 
     @api.onchange('project_period_id')
     def onchange_project_period_id(self):
+
         buffer_string = ''
+        buffer_squeleton = '{name}: ${cost}'
+
         if self.project_period_id:
-            buffer_string += 'Proyecto 1: $1324123.0\n'
-            buffer_string += 'Proyecto 2: $23.0\n'
-            buffer_string += 'Proyecto 3: $133.0\n'
-            buffer_string += 'Proyecto 4: $1322344123.0\n'
-            buffer_string += 'Proyecto 6: $234.0\n'
+
+            imputations = []
+
+            for weeksheet in self.project_period_id.weeksheet_ids:
+
+                imputations += weeksheet.imputation_ids
+
+            imputations = imputations.filtered("project_id.visible")
+
+            projects = imputations.mapped('project_id')
+
+            for project in projects:
+
+                cost = 0
+
+                project_imputations = imputations.filtered(lambda i: i.project_id == project)
+
+                for project_imputation in project_imputations:
+
+                    cost += project_imputation.get_cost()
+
+                buffer_string += buffer_squeleton.format(
+                    name=project.name,
+                    cost=cost)
+
         else:
             buffer_string = 'Debe elegir un periodo para visualizar el reporte.'
+
         self.text_report = buffer_string
 
 
@@ -54,9 +78,6 @@ class ProjectCostReportWizard(models.TransientModel):
         string="Reporte"
     )
 
-    @api.one
-    def getReport(self):
-        pass
 
 ProjectCostReportWizard()
 

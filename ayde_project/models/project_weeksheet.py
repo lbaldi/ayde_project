@@ -58,6 +58,9 @@ class ProjecWeeksheet(models.Model):
         string = "Imputaciones",
     )
 
+    def get_cost(self):
+        return self.user_id.get_cost() / 4
+
     @api.one
     @api.constrains('imputation_ids')
     def _check_percentage(self):
