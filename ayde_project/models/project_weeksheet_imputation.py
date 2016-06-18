@@ -33,6 +33,7 @@ class ProjecWeeksheetImputation(models.Model):
         comodel_name='project.weeksheet',
         string="Dedicacion Semanal",
         required=True,
+        ondelete="cascade",
     )
 
     project_id = fields.Many2one(
