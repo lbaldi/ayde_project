@@ -32,6 +32,9 @@ class ResCompany(models.Model):
         required=True,
     )
 
+    def get_tax_multiplier(self):
+        return 1 + (self.tax_percentage / 100)
+
     @api.one
     @api.constrains('tax_percentage')
     def _check_tax_percentage(self):

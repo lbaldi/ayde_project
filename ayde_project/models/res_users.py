@@ -42,7 +42,7 @@ class ResUsers(models.Model):
         cost = 0
         cost += self.company_id.get_it_expense_by_user()
         cost += self.salary / 12
-        cost += self.salary * self.company_id.it_expense
+        cost += self.salary * self.company_id.get_tax_multiplier()
         return cost
 
 ResUsers()
