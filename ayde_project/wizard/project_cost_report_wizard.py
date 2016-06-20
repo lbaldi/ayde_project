@@ -19,6 +19,9 @@
 from openerp import models, fields, api
 from openerp.exceptions import Warning
 
+import locale
+locale.setlocale(locale.LC_ALL, '')
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -59,15 +62,13 @@ class ProjectCostReportWizard(models.TransientModel):
 
                 buffer_string += buffer_squeleton.format(
                     name=project.name,
-                    cost=round(cost,2),
+                    cost=locale.format('%.f', cost, True),
                 )
 
         else:
             buffer_string = 'Debe elegir un periodo para visualizar el reporte.'
 
         self.text_report = buffer_string
-
-
 
     project_period_id = fields.Many2one(
         comodel_name="project.period",
@@ -79,8 +80,6 @@ class ProjectCostReportWizard(models.TransientModel):
         string="Reporte"
     )
 
-
 ProjectCostReportWizard()
-
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
