@@ -35,8 +35,23 @@ class ProjectCostReportWizard(models.TransientModel):
     @api.onchange('project_period_id')
     def onchange_project_period_id(self):
 
-        buffer_string = ''
-        buffer_squeleton = '{name}: ${cost}\n'
+        buffer_string = \
+            '<table border="1">' \
+                '<tbody>' \
+                    '<tr>' \
+                        '<td>Proyecto</td>' \
+                        '<td>Costo</td>' \
+                    '</tr>'
+
+        buffer_string_ending = \
+                '</tbody>' \
+            '</table>'
+
+        buffer_squeleton = \
+            '<tr> \
+                <td bgcolor="{color}">{name}</td> \
+                <td>${cost}</td> \
+            </tr>'
 
         if self.project_period_id:
 
@@ -53,6 +68,10 @@ class ProjectCostReportWizard(models.TransientModel):
             for project in projects:
 
                 cost = 0
+                color = '#000000'
+
+                if project.highlight:
+                    color = '#FF0000'
 
                 project_imputations = imputations.filtered(lambda i: i.project_id == project)
 
@@ -61,9 +80,12 @@ class ProjectCostReportWizard(models.TransientModel):
                     cost += project_imputation.get_cost()
 
                 buffer_string += buffer_squeleton.format(
+                    color=color,
                     name=project.name,
                     cost=locale.format('%.f', cost, True),
                 )
+
+            buffer_string += buffer_string_ending
 
         else:
             buffer_string = 'Debe elegir un periodo para visualizar el reporte.'

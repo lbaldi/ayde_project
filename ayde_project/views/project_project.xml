@@ -27,6 +27,7 @@
                         <group>
                             <field name="name"/>
                             <field name="visible"/>
+                            <field name="highlight"/>
                         </group>
                     </sheet>
                 </form>
@@ -42,6 +43,7 @@
                 <tree string="Proyectos">
                     <field name="name"/>
                     <field name="visible"/>
+                    <field name="highlight"/>
                 </tree>
 
             </field>

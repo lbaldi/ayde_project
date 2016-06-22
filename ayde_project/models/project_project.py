@@ -38,6 +38,11 @@ class ProjectProject(models.Model):
         string="Visible en reporte de costo?"
     )
 
+    highlight = fields.Boolean(
+        string="Resaltar en reporte de costo?",
+        default=False,
+    )
+
     active = fields.Boolean(
         string="Activo",
         default=True,
