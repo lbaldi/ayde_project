@@ -36,11 +36,11 @@ class ProjectCostReportWizard(models.TransientModel):
     def onchange_project_period_id(self):
 
         buffer_string = \
-            '<table border="1">' \
+            '<table border="1" style="width:100%">' \
                 '<tbody>' \
                     '<tr>' \
-                        '<td>Proyecto</td>' \
-                        '<td>Costo</td>' \
+                        '<td><span style="font-weight: bold;">Proyecto</span></td>' \
+                        '<td><span style="font-weight: bold;">Costo</span></td>' \
                     '</tr>'
 
         buffer_string_ending = \
@@ -50,7 +50,7 @@ class ProjectCostReportWizard(models.TransientModel):
         buffer_squeleton = \
             '<tr> \
                 <td bgcolor="{color}">{name}</td> \
-                <td>${cost}</td> \
+                <td bgcolor="#a1acfb" align="right">{cost}</td> \
             </tr>'
 
         if self.project_period_id:
