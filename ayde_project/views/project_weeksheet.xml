@@ -27,7 +27,7 @@
                         <group>
                             <field name="period_id" widget="selection"/>
                             <field name="week"/>
-                            <field name="user_id" widget="selection"/>
+                            <field name="user_id" widget="selection" readonly="True"/>
                         </group>
                         <group>
                             <field name="imputation_ids">

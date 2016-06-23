@@ -1,0 +1,7 @@
+"External ID","Nombre","Objeto","Grupo","Acceso de Lectura","Acceso de Escritura","Acceso de Creación","Eliminar Acceso"
+"regla1","Proyecto Proyecto","ayde_project.model_project_project","","True","True","True","True"
+"regla2","Proyecto Dedicacion Semanal","ayde_project.model_project_weeksheet","","True","True","True","True"
+"regla3","Proyecto Periodo","ayde_project.model_project_period","","True","True","True","True"
+"regla4","Proyecto Usuarios","auth_crypt.model_res_users","","True","True","True","True"
+"regla5","Proyecto Empresa","ayde_project.model_res_company","","True","True","True","True"
+"regla6","Proyecto Imputaciones","ayde_project.model_project_weeksheet_imputation","","True","True","True","True"

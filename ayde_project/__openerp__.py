@@ -38,7 +38,7 @@
 
     'data': [
 
-        #'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/menu.xml',
         'views/project_project.xml',
         'views/res_users.xml',

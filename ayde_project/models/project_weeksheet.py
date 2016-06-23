@@ -50,6 +50,7 @@ class ProjecWeeksheet(models.Model):
         comodel_name='res.users',
         string="Usuario",
         required=True,
+        default=lambda self: self.env.user,
     )
 
     imputation_ids = fields.One2many(

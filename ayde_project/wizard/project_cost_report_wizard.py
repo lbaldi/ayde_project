@@ -38,7 +38,7 @@ class ProjectCostReportWizard(models.TransientModel):
         # CALCULO % DE CARGA.
         max_weeksheet = 4 * len(self.env.user.company_id.user_ids)
         count_weeksheet = len(self.project_period_id.weeksheet_ids)
-        percentage_weeksheet = round(count_weeksheet / max_weeksheet * 100, 0)
+        percentage_weeksheet = int(float(count_weeksheet) / float(max_weeksheet) * 100)
 
         buffer_string = '<p>El porcentage de carga es del {} %</p>'.format(percentage_weeksheet)
 
