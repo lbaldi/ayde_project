@@ -42,7 +42,7 @@ class ResCompany(models.Model):
             raise Warning("El porcentaje establecido debe ser mayor a 0 y menor igual que 100!")
 
     it_expense = fields.Float(
-        string="Gastos Infraestructura",
+        string="Gastos Fijos",
         required=True,
     )
 

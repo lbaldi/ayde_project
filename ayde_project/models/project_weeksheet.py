@@ -37,10 +37,10 @@ class ProjecWeeksheet(models.Model):
 
     week = fields.Selection(
         [
-            ('1', '1 - Primer Semana'),
-            ('2', '2 - Segunda Semana'),
-            ('3', '3 - Tercer Semana') ,
-            ('4', '4 - Cuarta Semana')
+            ('1', '1 - Primer Semana  ( 01 a 07 )'),
+            ('2', '2 - Segunda Semana ( 08 a 15 )'),
+            ('3', '3 - Tercer Semana  ( 16 a 23 )'),
+            ('4', '4 - Cuarta Semana  ( 24 a 30 )')
         ],
         string="Semana",
         required=True,
