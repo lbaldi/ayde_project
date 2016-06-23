@@ -68,10 +68,10 @@ class ProjectCostReportWizard(models.TransientModel):
             for project in projects:
 
                 cost = 0
-                color = '#000000'
+                color = '#ffffff'
 
                 if project.highlight:
-                    color = '#FF0000'
+                    color = '#fff'
 
                 project_imputations = imputations.filtered(lambda i: i.project_id == project)
 
