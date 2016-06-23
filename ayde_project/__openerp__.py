@@ -37,8 +37,9 @@
 
     'data': [
 
-        'data/res_group.xml',
+        'data/res_groups.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule.xml',
         'views/menu.xml',
         'views/project_project.xml',
         'views/res_users.xml',
