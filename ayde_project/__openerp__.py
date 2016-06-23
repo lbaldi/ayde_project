@@ -15,7 +15,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
 
     'name': 'AYDE Project',
@@ -38,6 +37,7 @@
 
     'data': [
 
+        'data/res_group.xml',
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/project_project.xml',
@@ -65,5 +65,6 @@ AYDE Project
 """,
 
 }
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -1,7 +1,7 @@
-"External ID","Nombre","Objeto","Grupo","Acceso de Lectura","Acceso de Escritura","Acceso de Creación","Eliminar Acceso"
-"regla1","Proyecto Proyecto","ayde_project.model_project_project","","True","True","True","True"
-"regla2","Proyecto Dedicacion Semanal","ayde_project.model_project_weeksheet","","True","True","True","True"
-"regla3","Proyecto Periodo","ayde_project.model_project_period","","True","True","True","True"
-"regla4","Proyecto Usuarios","auth_crypt.model_res_users","","True","True","True","True"
-"regla5","Proyecto Empresa","ayde_project.model_res_company","","True","True","True","True"
-"regla6","Proyecto Imputaciones","ayde_project.model_project_weeksheet_imputation","","True","True","True","True"
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_project,project_project,ayde_project.model_project_project,,1,1,1,1
+project_weeksheet,project_weeksheet,ayde_project.model_project_weeksheet,,1,1,1,1
+project_period,project_period,ayde_project.model_project_period,,1,1,1,1
+res_users,res_users,auth_crypt.model_res_users,,1,1,1,1
+res_company,res_company,ayde_project.model_res_company,,1,1,1,1
+project_weeksheet_imputation,project_weeksheet_imputation,ayde_project.model_project_weeksheet_imputation,,1,1,1,1
