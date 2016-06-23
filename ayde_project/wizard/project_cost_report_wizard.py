@@ -35,7 +35,14 @@ class ProjectCostReportWizard(models.TransientModel):
     @api.onchange('project_period_id')
     def onchange_project_period_id(self):
 
-        buffer_string = \
+        # CALCULO % DE CARGA.
+        max_weeksheet = 4 * len(self.env.user.company_id.user_ids)
+        count_weeksheet = len(self.project_period_id.weeksheet_ids)
+        percentage_weeksheet = round(count_weeksheet / max_weeksheet * 100, 0)
+
+        buffer_string = '<p>El porcentage de carga es del {} %</p>'.format(percentage_weeksheet)
+
+        buffer_string += \
             '<table border="1" style="width:100%">' \
                 '<tbody>' \
                     '<tr>' \
