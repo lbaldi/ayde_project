@@ -40,7 +40,7 @@ class ProjectCostReportWizard(models.TransientModel):
         count_weeksheet = len(self.project_period_id.weeksheet_ids)
         percentage_weeksheet = int(float(count_weeksheet) / float(max_weeksheet) * 100)
 
-        buffer_string = '<p>El porcentage de carga es del {} %</p>'.format(percentage_weeksheet)
+        buffer_string = '<p>El porcentaje de carga es del {} %</p>'.format(percentage_weeksheet)
 
         buffer_string += \
             '<table border="1" style="width:100%">' \
@@ -52,12 +52,13 @@ class ProjectCostReportWizard(models.TransientModel):
 
         buffer_string_ending = \
                 '</tbody>' \
-            '</table>'
+            '</table>' \
+            '<p>* Los proyectos resaltados son proyectos internos.</p>'
 
         buffer_squeleton = \
             '<tr> \
                 <td bgcolor="{color}">{name}</td> \
-                <td bgcolor="#a1acfb" align="right">{cost}</td> \
+                <td bgcolor="#a1acfb" align="right">${cost}</td> \
             </tr>'
 
         if self.project_period_id:
