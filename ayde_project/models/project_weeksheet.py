@@ -74,7 +74,7 @@ class ProjecWeeksheet(models.Model):
     @api.multi
     def unlink(self):
         for each in self:
-            if each.period_id.unlink_date > fields.Datetime.now():
+            if each.period_id.unlink_date < fields.Datetime.now():
                 raise Warning("No se puede eliminar esta ficha de dedicacion")
 
     _sql_constraints = [
