@@ -26,6 +26,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="unlink_date"/>
                         </group>
                     </sheet>
                 </form>
@@ -40,6 +41,7 @@
 
                 <tree string="Periodos">
                     <field name="name"/>
+                    <field name="unlink_date"/>
                 </tree>
 
             </field>
