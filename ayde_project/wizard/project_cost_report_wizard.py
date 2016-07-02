@@ -58,7 +58,7 @@ class ProjectCostReportWizard(models.TransientModel):
         buffer_squeleton = \
             '<tr> \
                 <td bgcolor="{color}">{name}</td> \
-                <td bgcolor="#a1acfb" align="right">${cost}</td> \
+                <td style="text-align: right!important" bgcolor="#a1acfb">${cost}</td> \
             </tr>'
 
         if self.project_period_id:

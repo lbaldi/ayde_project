@@ -36,6 +36,11 @@ class ProjectPeriod(models.Model):
         required=True,
     )
 
+    unlink_date = fields.Date(
+        string="Permitir borrado antes de",
+        required=True,
+    )
+
     weeksheet_ids = fields.One2many(
         comodel_name='project.weeksheet',
         inverse_name="period_id",

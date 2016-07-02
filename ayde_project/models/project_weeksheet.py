@@ -72,6 +72,10 @@ class ProjecWeeksheet(models.Model):
             raise Warning("La sumatoria de todas las imputaciones debe ser igual a 100")
 
 
+    def unlink(self):
+        if self.period_id.unlink_date > fields.Datetime.now():
+            raise Warning("No se puede eliminar esta ficha de dedicacion")
+
     _sql_constraints = [
         ('unique_week_period',
          'unique(period_id,week,user_id)',
