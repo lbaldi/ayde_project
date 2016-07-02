@@ -76,6 +76,7 @@ class ProjecWeeksheet(models.Model):
         for each in self:
             if each.period_id.unlink_date < fields.Datetime.now():
                 raise Warning("No se puede eliminar esta ficha de dedicacion")
+        return super(ProjecWeeksheet, self).unlink()
 
     _sql_constraints = [
         ('unique_week_period',
