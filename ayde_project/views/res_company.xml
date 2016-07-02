@@ -34,7 +34,7 @@
                             <field name="mail_smtp"/>
                             <field name="mail_port"/>
                             <field name="mail_mail"/>
-                            <field name="mail_password" widget="password"/>
+                            <field name="mail_password" password="True"/>
                         </group>
                     </sheet>
                 </form>
