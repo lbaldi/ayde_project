@@ -22,6 +22,8 @@ from openerp.exceptions import Warning
 import locale
 locale.setlocale(locale.LC_ALL, '')
 
+import emailSender
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -32,8 +34,43 @@ class ProjectCostReportWizard(models.TransientModel):
 
     _description = 'Reporte de costo de proyectos'
 
+    @api.one
     def send_notification(self):
-        return True
+
+        if self.project_period_id:
+
+            recipients = []
+
+            for user in self.env.user.company_id.user_ids:
+
+                weeksheets = self.project_period_id.weeksheet_ids.filtered(lambda  i: i.user_id == user)
+                if len(weeksheets) < 4:
+                    recipients.append(user.email_notification)
+
+            body = 'Se solicita la carga de dedicacion pendiente del periodo {period}'.format(
+                period=self.project_period_id.name,
+            )
+
+            if recipients:
+
+                try:
+
+                    emailSender.emailSender.send_email(
+                        smtp=self.env.user.company_id.mail_smtp,
+                        port=self.env.user.company_id.mail_port,
+                        email=self.env.user.company_id.mail_mail,
+                        password=self.env.user.company_id.mail_password,
+                        recipient=recipients,
+                        subject="Notificacion",
+                        body=body,
+                    )
+
+                except:
+
+                    raise Warning('Ha ocurrido un error al enviar el mensaje.')
+
+        else:
+            raise Warning("Debe seleccionar un periodo para ejecutar esta acccion.")
 
     @api.onchange('project_period_id')
     def onchange_project_period_id(self):
