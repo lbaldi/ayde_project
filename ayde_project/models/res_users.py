@@ -32,7 +32,7 @@ class ResUsers(models.Model):
         required=True,
     )
 
-    email_notificacion = fields.Char(
+    email_notification = fields.Char(
         string="Email",
         required=True,
     )

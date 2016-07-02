@@ -24,7 +24,7 @@
 
                 <form string="Empresa">
                     <sheet>
-                        <group string"Datos Principales">
+                        <group string="Datos Principales">
                             <field name="name"/>
                             <field name="tax_percentage"/>
                             <field name="it_expense"/>

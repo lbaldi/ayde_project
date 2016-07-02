@@ -27,7 +27,7 @@
                         <group>
                             <field name="name"/>
                             <field name="login"/>
-                            <field name="email_notificacion"/>
+                            <field name="email_notification"/>
                             <field name="company_id" widget="selection"/>
                             <field name="salary"/>
                         </group>
@@ -45,7 +45,7 @@
                 <tree string="Usuarios">
                     <field name="name"/>
                     <field name="login"/>
-                    <field name="email_notificacion"/>
+                    <field name="email_notification"/>
                     <field name="company_id"/>
                 </tree>
 
