@@ -24,11 +24,17 @@
 
                 <form string="Empresa">
                     <sheet>
-                        <group>
+                        <group string"Datos Principales">
                             <field name="name"/>
                             <field name="tax_percentage"/>
                             <field name="it_expense"/>
-                            <field name="logo"/>
+                            <field name="logo" widget="image"/>
+                        </group>
+                        <group string="Correo Saliente">
+                            <field name="mail_smtp"/>
+                            <field name="mail_port"/>
+                            <field name="mail_mail"/>
+                            <field name="mail_password" widget="password"/>
                         </group>
                     </sheet>
                 </form>

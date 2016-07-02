@@ -32,6 +32,26 @@ class ResCompany(models.Model):
         required=True,
     )
 
+    mail_smtp = fields.Char(
+        string="SMTP Server",
+        required=True,
+    )
+
+    mail_port = fields.Integer(
+        string="Port",
+        required=True,
+    )
+
+    mail_mail = fields.Char(
+        string="Email",
+        required=True,
+    )
+
+    mail_password = fields.Char(
+        string="Password",
+        required=True,
+    )
+
     def get_tax_multiplier(self):
         return 1 + (self.tax_percentage / 100)
 

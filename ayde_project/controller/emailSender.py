@@ -16,40 +16,29 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
-from openerp.exceptions import Warning
+import smtplib
 
-import logging
-_logger = logging.getLogger(__name__)
+class emailSender(object):
 
+    @classmethod
+    def send_email(cls, smtp, port, email, password, recipient, subject, body):
 
-class ResUsers(models.Model):
+        TO = recipient if type(recipient) is list else [recipient]
+        SUBJECT = subject
+        TEXT = body
 
-    _inherit = 'res.users'
+        message = """\From: %s\nTo: %s\nSubject: %s\n\n%s
+        """ % (email, ", ".join(TO), SUBJECT, TEXT)
 
-    salary = fields.Float(
-        string="Salario",
-        required=True,
-    )
+        # PARA DESACTIVAR SEGURIDAD DE GOOGLE
+        #https://www.google.com/settings/security/lesssecureapps
 
-    email_notificacion = fields.Char(
-        string="Email",
-        required=True,
-    )
-
-    @api.one
-    @api.constrains('salary')
-    def _check_salary(self):
-        if self.salary <= 0.0:
-            raise Warning("El valor debe ser mayor igual a 0.")
-
-    def get_cost(self):
-        cost = 0
-        cost += self.company_id.get_it_expense_by_user()
-        cost += (self.salary + self.salary / 12) * self.company_id.get_tax_multiplier()
-        return cost
-
-ResUsers()
+        server = smtplib.SMTP(smtp, port)
+        server.ehlo()
+        server.starttls()
+        server.login(email, password)
+        server.sendmail(email, recipient, message)
+        server.close()
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
