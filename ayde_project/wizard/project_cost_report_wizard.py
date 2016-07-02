@@ -32,6 +32,9 @@ class ProjectCostReportWizard(models.TransientModel):
 
     _description = 'Reporte de costo de proyectos'
 
+    def send_notification(self):
+        return True
+
     @api.onchange('project_period_id')
     def onchange_project_period_id(self):
 

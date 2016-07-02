@@ -29,6 +29,14 @@
                             <field name="text_report" readonly="True" widget="html"/>
                         </group>
                     </sheet>
+                    <footer>
+                        <button
+                                string="Notificar a usuarios pendiente de carga"
+                                type="object"
+                                class="oe_highlight"
+                                name="send_notification"
+                        />
+                    </footer>
                 </form>
             </field>
         </record>
