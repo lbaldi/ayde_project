@@ -71,10 +71,11 @@ class ProjecWeeksheet(models.Model):
         if total != 100:
             raise Warning("La sumatoria de todas las imputaciones debe ser igual a 100")
 
-    @api.models
+    @api.multi
     def unlink(self):
-        if self.period_id.unlink_date > fields.Datetime.now():
-            raise Warning("No se puede eliminar esta ficha de dedicacion")
+        for each in self:
+            if each.period_id.unlink_date > fields.Datetime.now():
+                raise Warning("No se puede eliminar esta ficha de dedicacion")
 
     _sql_constraints = [
         ('unique_week_period',
